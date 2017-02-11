@@ -21,10 +21,12 @@ $(()=>{
       $('div').addClass('grid');
       $startBtn.removeClass('grid');
       $timer.removeClass('grid');
-
     }
   }
 
+  function upDateScore(){
+    $activeScore.text(score);
+  }
 
   function addRandomMole(){
     const mole = Math.floor(Math.random()*$('div').length);
@@ -76,8 +78,5 @@ $(()=>{
     });
   });
 
-  function upDateScore(){
-    $activeScore.text(score);
-  }
 
 });

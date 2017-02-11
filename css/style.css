@@ -15,7 +15,8 @@ max-width:940px;
 min-width:900px;
 min-height:774px;
 display:inline-block;
-
+background-image: url("cado.jpg");
+background-size: cover;
 }
 .grid{
 border: brown solid 2px;

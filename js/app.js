@@ -11,7 +11,7 @@ $(()=>{
   const $startBtn = $('.play');
   const $reset = $('.reset');
   const $timer = $('.time');
-
+  $reset.hide();
   function createBoard(){
     $startBtn.hide();
     for(let i=0;i<30;i++){
@@ -41,6 +41,7 @@ $(()=>{
     },1000);
     setTimeout(()=>{
       clearInterval(timeId);
+      $reset.show();
     },10000);
 
   }

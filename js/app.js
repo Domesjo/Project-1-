@@ -12,6 +12,8 @@ $(()=>{
   const $reset = $('.reset');
   const $timer = $('.time');
   $reset.hide();
+
+
   function createBoard(){
     $startBtn.hide();
     for(let i=0;i<30;i++){
@@ -28,6 +30,9 @@ $(()=>{
     const mole = Math.floor(Math.random()*$('div').length);
     $('.grid').eq(mole).addClass('mole');
     //Mole måste va i randomMole för att hoistas till rätt tillfälle
+    setTimeout(()=>{
+      $('.grid').eq(mole).removeClass('mole');
+    },2000);
   }
 
   function start(){
@@ -42,12 +47,14 @@ $(()=>{
     setTimeout(()=>{
       clearInterval(timeId);
       $reset.show();
+      $('.grid').removeClass('mole');
     },10000);
 
   }
 
 
   $reset.click(()=>{
+    $reset.hide();
     $('.grid').removeClass('mole');
     start();
     score = 0;

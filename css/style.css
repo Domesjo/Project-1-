@@ -36,8 +36,9 @@ footer {
 }
 
 .mole {
-background-color: black;
+background-image: url("Mole.gif");
 cursor:pointer;
+background-size: contain;
 }
 
 header .play {

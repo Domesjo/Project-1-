@@ -50,6 +50,7 @@ padding: 10px;
 padding-top:10px;
 cursor:pointer;
 margin-left: 40px;
+display: inline-block;
 }
 .play {
  position:absolute;
@@ -70,4 +71,50 @@ margin-left: 40px;
   font-size: 70px;
   font-family: 'Roboto Mono', monospace;
 
+}
+.score {
+  height:200px;
+  color:#5BA512;
+  font-size: 200px;
+  margin-top: 70px;
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  margin-bottom: 100px;
+}
+header .reset {
+height: 100px;
+width:170px;
+background-color: white;
+text-align: center;
+border-radius: 10px;
+font-size: 30px;
+padding: 10px;
+padding-top:10px;
+cursor:pointer;
+margin-left: 300px;
+display:inline-block;
+margin-top: 20px;
+font-family: 'Pacifico', cursive;
+line-height: 35px;
+color:black;
+}
+
+.time {
+background-color: purple;
+height: 200px;
+width: 300px;
+margin: 0 auto;
+margin-bottom: 0;
+}
+
+.time h2 {
+margin-bottom:0;
+
+}
+
+.displayTime {
+font-size: 100px;
+text-align:center;
+margin: 0 auto;
+margin-top: 0;
 }

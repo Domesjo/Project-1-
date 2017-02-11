@@ -37,18 +37,19 @@ $(()=>{
 
   function start(){
     const timeId = setInterval(()=>{
-      for (let i=0;i<3;i++){
-        addRandomMole();
-      }
-      time--;
+      addRandomMole();
       upDateScore();
       $('.displayTime').text(time);
+    },330);
+    const tidId = setInterval(()=>{
+      time--;
     },1000);
     setTimeout(()=>{
       clearInterval(timeId);
+      clearInterval(tidId);
       $reset.show();
       $('.grid').removeClass('mole');
-    },10000);
+    },11000);
 
   }
 

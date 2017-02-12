@@ -46,8 +46,9 @@ background-size: contain;
   background-size: contain;
 }
 .bad {
-  background-color: black;
+  background-image: url("angry.png");
   cursor: pointer;
+  background-size: contain;
 }
 
 header .play {
@@ -128,4 +129,37 @@ font-size: 100px;
 text-align:center;
 margin: 0 auto;
 margin-top: 0;
+}
+
+header .Instructions {
+  height: 100px;
+  width:170px;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 30px;
+  padding: 10px;
+  padding-top:20px;
+  cursor:pointer;
+  float:right;
+  margin-right: 370px;
+  display: inline-block;
+  font-family: 'Pacifico', cursive;
+  margin-top:17px;
+  line-height: 30px;
+}
+
+.how{
+width: 300px;
+height: 250px;
+font-family: 'Acme', sans-serif;
+color:rgba(124, 227, 233, 1);
+text-transform: uppercase;
+display:none;
+font-size: 25px;
+margin: 0 auto;
+cursor:pointer;
+z-index: 9999;
+background-image: url('100.gif');
+background-size: contain;
 }

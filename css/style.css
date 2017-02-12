@@ -3,7 +3,8 @@
 box-sizing: border-box;
 }
 header {
-  background-color: grey;
+  background-image: url("cakeByTheOcean.jpg");
+  background-size:contain;
   height: 150px;
   width: 100%;
 }
@@ -29,7 +30,7 @@ border-radius: 100px;
 }
 
 footer {
-  background-color: green;
+  background-image: url("cakeByTheOcean.jpg");
   height:75px;
   width:100%;
 }
@@ -63,6 +64,19 @@ padding-top:10px;
 cursor:pointer;
 margin-left: 40px;
 display: inline-block;
+}
+
+header h1 {
+display:inline-block;
+text-align: center;
+margin: 0 auto;
+position:absolute;
+left: 37%;
+color:rgba(85, 215, 142, 0.9);
+top:2%;
+font-size: 60px;
+font-family: 'Pacifico', cursive;
+margin-right:10px;
 }
 .play {
  position:absolute;
@@ -142,7 +156,7 @@ header .Instructions {
   padding-top:20px;
   cursor:pointer;
   float:right;
-  margin-right: 370px;
+  margin-right: 200px;
   display: inline-block;
   font-family: 'Pacifico', cursive;
   margin-top:17px;
@@ -162,4 +176,6 @@ cursor:pointer;
 z-index: 9999;
 background-image: url('100.gif');
 background-size: contain;
+margin-right:250px;
+
 }

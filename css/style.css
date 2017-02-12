@@ -26,7 +26,6 @@ background-color: rgba(16,150,0,.3);
 display:inline-block;
 margin:25px 25px;
 border-radius: 100px;
-
 }
 
 footer {
@@ -39,6 +38,16 @@ footer {
 background-image: url("Mole.gif");
 cursor:pointer;
 background-size: contain;
+}
+
+.tree {
+  background-image: url("200.gif");
+  cursor: pointer;
+  background-size: contain;
+}
+.bad {
+  background-color: black;
+  cursor: pointer;
 }
 
 header .play {

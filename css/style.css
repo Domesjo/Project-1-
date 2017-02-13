@@ -236,3 +236,21 @@ margin-left: 5px;
 font-family: 'Satisfy', cursive;
 
 }
+.highScore {
+  border: solid black 1px;
+height:200px;
+width:230px;
+background-color: #FFF;
+display: inline-block;
+float:right;
+margin-top: 20px;
+margin-right: 40px;
+line-height: 20px;
+font-family: 'Pacifico', cursive;
+text-align: center;
+}
+
+li{
+margin: 10px 10px;
+
+}

@@ -8,15 +8,8 @@ function CalcRandom(){
 }
 //let time = $('.select').find(':selected').val();
 let score = 0;
-//let difficulty = parseInt($('select option:selected').val());
+
 // const highscore = localStorage.getItem('highscore');
-// if(highscore !== null) {
-//   if(score > highscore) {
-//     localStorage.setItem('highscore', score);
-//   } else {
-//     localStorage.setItem('highscore', score);
-//   }
-// }
 
 
 $(()=>{
@@ -24,6 +17,10 @@ $(()=>{
   let time = parseInt($('select option:selected').val());
   let difficulty = 2;
 
+  const hiScore4 = localStorage.getItem('hiScore4');
+  const hiScore3 = localStorage.getItem('hiScore3');
+  const hiScore2 = localStorage.getItem('hiScore2');
+  const hiScore = localStorage.getItem('hiScore');
   const $board = $('#container');
   const $activeScore = $('.score');
   const $startBtn = $('.play');
@@ -32,8 +29,11 @@ $(()=>{
   const $instructions = $('.Instructions');
   const $how= $('.how');
   const $cash = $('.cash');
-  //const $grid = $('.grid'); funkar ej av någon konstig anledning
 
+  $('#1').text(localStorage.getItem('hiScore'));
+  $('#2').text(localStorage.getItem('hiScore2'));
+  $('#3').text(localStorage.getItem('hiScore3'));
+  $('#4').text(localStorage.getItem('hiScore4'));
   $reset.hide();
 
   function removeGrid(){
@@ -42,6 +42,7 @@ $(()=>{
     $instructions.removeClass('grid');
     $reset.removeClass('grid');
     $how.removeClass('grid');
+    $('.highScore').removeClass('grid');
   }
 
   function createBoard(){
@@ -69,7 +70,19 @@ $(()=>{
     $cash.trigger('play');
   }
 
+  function highScore(){
+    if(hiScore !== null) {
+      if(score > hiScore ) localStorage.setItem('hiScore', score);
 
+      else if(hiScore2 !== null){
+        if(score < hiScore && score > hiScore3) localStorage.setItem('hiScore2',score);
+      } else if(hiScore3 !== null){
+        if(score < hiScore2 && score > hiScore3) localStorage.setItem('hiScore3',score);
+      }else if(hiScore4 !== null){
+        if(score < hiScore3 && score > hiScore4) localStorage.setItem('hiScore4',score);
+      }
+    }
+  }
   function start(){
     difficulty = parseInt($('#difficultySelector option:selected').val());
     time = parseInt($('#selector option:selected').val());
@@ -89,9 +102,10 @@ $(()=>{
 
       clearInterval(timeId);
       clearInterval(tidId);
-
       $reset.show();
       $('.grid').removeClass('mole');
+      highScore();
+      localStorage.getItem('hiScore');
     },time*1000+500);
 
   }

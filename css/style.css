@@ -1,7 +1,10 @@
 * {
 
 box-sizing: border-box;
-background-color: rgba(41, 40, 50, 0.1);
+}
+body  {
+  background: linear-gradient(to left, #1D976C , #93F9B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 header {
   background-image: url("CBTO.jpg");
@@ -11,7 +14,9 @@ header {
 }
 main{
 margin: 0 auto;
-border: black dotted 2px;
+border: solid rgba(0, 0, 0, 0.7) 4px;
+margin-top: 1px;
+margin-bottom: 1px;
 height: 52%;
 max-width:940px;
 min-width:900px;
@@ -34,6 +39,7 @@ footer {
   background-image: url("CBTO.jpg");
   height:50px;
   width:100%;
+
 }
 
 .mole {
@@ -70,6 +76,7 @@ padding-top:10px;
 cursor:pointer;
 margin-left: 40px;
 display: inline-block;
+border: solid rgba(0, 0, 0, 0.7) 2px;
 }
 
 header h1 {
@@ -89,9 +96,11 @@ background-color:rgba(255,255,255,0)
  position:absolute;
  margin-top: 20px;
  font-family: 'Pacifico', cursive;
+ border: solid rgba(0, 0, 0, 0.7) 2px;
 }
 .left {
-  background-color: rgba(173,255,47,0.5);
+  background: linear-gradient(to left, #ECE9E6 , #FFFFFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ß
   width: 300px;
   height: 500px;
   display:inline-block;
@@ -116,6 +125,7 @@ margin-bottom: 20px;
   font-family: 'Roboto Mono', monospace;
   margin-bottom: 100px;
   background-color:rgba(255,255,255,0)
+  l
 }
 header .reset {
 height: 100px;
@@ -133,6 +143,7 @@ margin-top: 20px;
 font-family: 'Pacifico', cursive;
 line-height: 35px;
 color:black;
+border: solid rgba(0, 0, 0, 0.7) 2px;
 }
 
 .time {
@@ -141,6 +152,8 @@ height: 200px;
 width: 300px;
 margin: 0 auto;
 margin-bottom: 0;
+border: solid rgba(0, 0, 0, 0.7) 2px;
+margin-top: 10px;
 }
 
 .time h2 {
@@ -172,6 +185,7 @@ header .Instructions {
   font-family: 'Pacifico', cursive;
   margin-top:17px;
   line-height: 30px;
+  border: solid rgba(0, 0, 0, 0.7) 2px;
 }
 
 .how{
@@ -188,7 +202,7 @@ z-index: 9999;
 background-image: url('100.gif');
 background-size: contain;
 margin-right:250px;
-
+border: solid rgba(0, 0, 0, 0.7) 2px;
 }
 
 .footer {
@@ -240,7 +254,8 @@ font-family: 'Satisfy', cursive;
   border: solid black 1px;
 height:200px;
 width:230px;
-background-color: #FFF;
+background: linear-gradient(to left, #2BC0E4 , #EAECC6);
+
 display: inline-block;
 float:right;
 margin-top: 20px;
@@ -248,9 +263,12 @@ margin-right: 40px;
 line-height: 20px;
 font-family: 'Pacifico', cursive;
 text-align: center;
+
 }
 
 li{
 margin: 10px 10px;
-
+border: dashed rgba(27,163,157,.7) 2px;
+font-size: 20px;
+font-family: 'Pacifico', cursive;
 }

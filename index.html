@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Project 1</title>
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -30,12 +31,17 @@
     <aside class="left">
       <h2>Score:</h2>
       <p class="score"></p>
+      <p class="choose" >Select time and difficulty</p>
       <form>
         <select name="selector" id="selector">
           <option class="option" value="15">15</option>
           <option class="option" value="30">30</option>
           <option class="option" value="45">45</option>
-
+        </select>
+        <select id="difficultySelector">
+          <option class="option" value="3">Premade Guacc!</option>
+          <option class="option" value="2" selected>Guacc it yourself!</option>
+          <option class="option" value="1">Hardcore Guacc!</option>
         </select>
       </form>
       <div class="time">

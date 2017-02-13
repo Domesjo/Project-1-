@@ -105,6 +105,7 @@ background-color:rgba(255,255,255,0)
   font-family: 'Roboto Mono', monospace;
 background-color:rgba(255,255,255,0);
 margin-top: 20px;
+margin-bottom: 20px;
 }
 .score {
   height:170px;
@@ -211,10 +212,27 @@ color:rgba(255,255,255,1);
      outline: none;
      cursor: pointer;
      font-weight: bold;
-     margin-left: 120px;
+     margin-left: 70px;
      background-color: rgba(0,100,0,.3);
      margin-top: 20px;
+     font-family: 'Satisfy', cursive;
+
 }
 form {
   background-color: rgba(255,255,255,0);
+}
+#difficultySelector {
+font-size: 20px;
+background-color: rgba(0,100,0,.3);
+font-family: 'Satisfy', cursive;
+
+}
+
+.choose {
+background-color: inherit;
+margin-bottom: 0;
+font-size: 20px;
+margin-left: 5px;
+font-family: 'Satisfy', cursive;
+
 }

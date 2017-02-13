@@ -8,29 +8,21 @@ function CalcRandom(){
 }
 //let time = $('.select').find(':selected').val();
 let score = 0;
+//let difficulty = parseInt($('select option:selected').val());
+// const highscore = localStorage.getItem('highscore');
+// if(highscore !== null) {
+//   if(score > highscore) {
+//     localStorage.setItem('highscore', score);
+//   } else {
+//     localStorage.setItem('highscore', score);
+//   }
+// }
 
-function addRandomMole(){
-  const mole = CalcRandom();
-  $('.grid').eq(mole).addClass('mole');
-  //Mole måste va i randomMole för att hoistas till rätt tillfälle
-  timeOut(mole,'mole',2000);
-}
 
-function addRandomTree(){
-  const tree = CalcRandom();
-  ($('.grid').hasClass('mole')) ? $('.grid').eq(tree).addClass('tree') : console.log('dont work');
-  timeOut(tree,'tree',1000);
-}
-
-function addRandomBad(){
-  const bad = CalcRandom();
-  ($('.grid').hasClass('tree')) ? $('.grid').eq(bad).addClass('bad') : console.log('bad dont work');
-
-  timeOut(bad,'bad',1750);
-}
 $(()=>{
 //  let time = 15;
   let time = parseInt($('select option:selected').val());
+  let difficulty = 2;
 
   const $board = $('#container');
   const $activeScore = $('.score');
@@ -79,7 +71,8 @@ $(()=>{
 
 
   function start(){
-    time = parseInt($('select option:selected').val());
+    difficulty = parseInt($('#difficultySelector option:selected').val());
+    time = parseInt($('#selector option:selected').val());
     const timeId = setInterval(()=>{
       addRandomMole();
       upDateScore();
@@ -102,13 +95,32 @@ $(()=>{
     },time*1000+500);
 
   }
-  
+
+  function addRandomMole(){
+    const mole = CalcRandom();
+    $('.grid').eq(mole).addClass('mole');
+    //Mole måste va i randomMole för att hoistas till rätt tillfälle
+    timeOut(mole,'mole',difficulty *1000 );
+  }
+
+  function addRandomTree(){
+    const tree = CalcRandom();
+    ($('.grid').hasClass('mole')) ? $('.grid').eq(tree).addClass('tree') : console.log('dont work');
+    timeOut(tree,'tree',difficulty*1000/2);
+  }
+
+  function addRandomBad(){
+    const bad = CalcRandom();
+    ($('.grid').hasClass('tree')) ? $('.grid').eq(bad).addClass('bad') : console.log('bad dont work');
+
+    timeOut(bad,'bad',difficulty*1000 +500);
+  }
 
   $instructions.click(()=>{
     $how.show();
     $how.click(()=>{
       $how.hide();
-      console.log(parseInt($('select option:selected').val()));
+      console.log(parseInt($('#difficultySelector option:selected').val()));
     });
   });
 
@@ -116,7 +128,7 @@ $(()=>{
     $reset.hide();
     $('.grid').removeClass('mole');
     score = 0;
-    time = parseInt($('select option:selected').val());
+    time = parseInt($('#selector option:selected').val());
     $activeScore.text(score);
     start();
   });
@@ -137,4 +149,7 @@ $(()=>{
     });
 
   });
+
+
+
 });

@@ -1,6 +1,7 @@
 * {
 
 box-sizing: border-box;
+background-color: rgba(41, 40, 50, 0.1);
 }
 header {
   background-image: url("cakeByTheOcean.jpg");
@@ -31,7 +32,7 @@ border-radius: 100px;
 
 footer {
   background-image: url("cakeByTheOcean.jpg");
-  height:75px;
+  height:50px;
   width:100%;
 }
 
@@ -45,6 +46,11 @@ background-size: contain;
   background-image: url("200.gif");
   cursor: pointer;
   background-size: contain;
+  -webkit-transform: rotate(360deg);
+   -webkit-transition-duration: 1s;
+   -webkit-transition-delay: now;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;
 }
 .bad {
   background-image: url("angry.png");
@@ -77,6 +83,7 @@ top:2%;
 font-size: 60px;
 font-family: 'Pacifico', cursive;
 margin-right:10px;
+background-color:rgba(255,255,255,0)
 }
 .play {
  position:absolute;
@@ -96,16 +103,18 @@ margin-right:10px;
   text-align: center;
   font-size: 70px;
   font-family: 'Roboto Mono', monospace;
-
+background-color:rgba(255,255,255,0);
+margin-top: 20px;
 }
 .score {
-  height:200px;
+  height:170px;
   color:#5BA512;
   font-size: 200px;
-  margin-top: 70px;
+  margin-top: 40px;
   text-align: center;
   font-family: 'Roboto Mono', monospace;
   margin-bottom: 100px;
+  background-color:rgba(255,255,255,0)
 }
 header .reset {
 height: 100px;
@@ -126,7 +135,7 @@ color:black;
 }
 
 .time {
-background-color: purple;
+background: linear-gradient(to left, #70e1f5 , #ffd194);
 height: 200px;
 width: 300px;
 margin: 0 auto;
@@ -143,6 +152,7 @@ font-size: 100px;
 text-align:center;
 margin: 0 auto;
 margin-top: 0;
+background-color:rgba(255,255,255,0);
 }
 
 header .Instructions {
@@ -178,4 +188,33 @@ background-image: url('100.gif');
 background-size: contain;
 margin-right:250px;
 
+}
+
+.footer {
+font-size: 30px;
+float:right;
+margin-top:10px;
+margin-bottom: 5px;
+color:rgba(255,255,255,1);
+ font-family: 'Pacifico', cursive;
+ margin-right:15px;
+ background-color:rgba(255,255,255,0)
+}
+
+#selector {
+     position: relative;
+     width: 50px;
+     font-size: 20px;
+     padding: 0;
+     margin: 0 auto;
+     background-color: rgba(255,255,255,0);
+     outline: none;
+     cursor: pointer;
+     font-weight: bold;
+     margin-left: 120px;
+     background-color: rgba(0,100,0,.3);
+     margin-top: 20px;
+}
+form {
+  background-color: rgba(255,255,255,0);
 }

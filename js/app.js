@@ -6,7 +6,7 @@ function timeOut(num,toRemove,time){
 function CalcRandom(){
   return  Math.floor(Math.random()*$('div').length);
 }
-let time = 10;
+//let time = $('.select').find(':selected').val();
 let score = 0;
 
 function addRandomMole(){
@@ -29,8 +29,9 @@ function addRandomBad(){
   timeOut(bad,'bad',1750);
 }
 $(()=>{
+//  let time = 15;
+  let time = parseInt($('select option:selected').val());
 
-  console.log('JS loaded');
   const $board = $('#container');
   const $activeScore = $('.score');
   const $startBtn = $('.play');
@@ -38,6 +39,7 @@ $(()=>{
   const $timer = $('.time');
   const $instructions = $('.Instructions');
   const $how= $('.how');
+  const $cash = $('.cash');
   //const $grid = $('.grid'); funkar ej av någon konstig anledning
 
   $reset.hide();
@@ -67,12 +69,17 @@ $(()=>{
     if($(e.target).hasClass(target)){
       $(e.target).removeClass(target);
       score+=scoretoAdd;
+      playSound();
       console.log('works');
     }
+  }
+  function playSound() {
+    $cash.trigger('play');
   }
 
 
   function start(){
+    time = parseInt($('select option:selected').val());
     const timeId = setInterval(()=>{
       addRandomMole();
       upDateScore();
@@ -86,33 +93,39 @@ $(()=>{
     },1000);
 
     setTimeout(()=>{
+
       clearInterval(timeId);
       clearInterval(tidId);
+
       $reset.show();
       $('.grid').removeClass('mole');
-    },10500);
+    },time*1000+500);
 
   }
+  
 
   $instructions.click(()=>{
     $how.show();
     $how.click(()=>{
       $how.hide();
+      console.log(parseInt($('select option:selected').val()));
     });
   });
 
   $reset.click(()=>{
     $reset.hide();
     $('.grid').removeClass('mole');
-    start();
     score = 0;
-    time = 10;
+    time = parseInt($('select option:selected').val());
     $activeScore.text(score);
+    start();
   });
 
   $startBtn.click(function gameTime(){
     createBoard();
-    start();
+    setTimeout(()=>{
+      start();
+    },500);
     $('.grid').click((e)=>{
       targeter(e,'mole',1);
     });

@@ -100,7 +100,7 @@ background-color:rgba(255,255,255,0)
 }
 .left {
   background: linear-gradient(to left, #ECE9E6 , #FFFFFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-ß
+
   width: 300px;
   height: 500px;
   display:inline-block;
@@ -167,6 +167,9 @@ text-align:center;
 margin: 0 auto;
 margin-top: 0;
 background-color:rgba(255,255,255,0);
+margin-bottom: 20px;
+position: relative;
+bottom:20px;
 }
 
 header .Instructions {
@@ -230,7 +233,9 @@ color:rgba(255,255,255,1);
      background-color: rgba(0,100,0,.3);
      margin-top: 20px;
      font-family: 'Satisfy', cursive;
-
+     margin-bottom: 10px;
+  bottom: 15px;
+  right:55px;
 }
 form {
   background-color: rgba(255,255,255,0);
@@ -239,7 +244,9 @@ form {
 font-size: 20px;
 background-color: rgba(0,100,0,.3);
 font-family: 'Satisfy', cursive;
-
+bottom:15px;
+right:50px;
+position: relative;
 }
 
 .choose {

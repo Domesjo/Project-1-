@@ -130,8 +130,6 @@ $(()=>{
 
   function addRandomMole(){
     const num = CalcRandom();
-  //  console.log(difficulty);
-    //(difficulty === 1) ? $grid.eq(num).addClass('donald'): console.log('repo');
     $grid.eq(num).addClass('mole');
     timeOut(num,'mole',difficulty *1000 );
   }

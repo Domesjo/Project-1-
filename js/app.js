@@ -38,7 +38,7 @@ $(()=>{
     $('#3').text(localStorage.getItem('hiScore3'));
     $('#4').text(localStorage.getItem('hiScore4'));
   }
-
+  //$how.slideUp(400);
   $reset.hide();
   checkHighScore();
 
@@ -61,7 +61,7 @@ $(()=>{
     'tree mole': 3,
     bad: -1,
     'grid': 0,
-    'mole bad ': 0,
+    'mole bad': 0,
     'bad mole': 0
   };
 
@@ -130,6 +130,8 @@ $(()=>{
 
   function addRandomMole(){
     const num = CalcRandom();
+  //  console.log(difficulty);
+    //(difficulty === 1) ? $grid.eq(num).addClass('donald'): console.log('repo');
     $grid.eq(num).addClass('mole');
     timeOut(num,'mole',difficulty *1000 );
   }
@@ -147,9 +149,9 @@ $(()=>{
   }
 
   $instructions.click(()=>{
-    $how.show();
+    $how.slideToggle(400);
     $how.click(()=>{
-      $how.hide();
+      $how.slideToggle(400);
     });
   });
 

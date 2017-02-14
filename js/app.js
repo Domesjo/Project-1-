@@ -27,7 +27,7 @@ $(()=>{
   const $activeScore = $('.score');
   const $startBtn = $('.play');
   const $reset = $('.reset');
-  const $timer = $('.time');
+  //const $timer = $('.time');
   const $instructions = $('.Instructions');
   const $how= $('.how');
   const $cash = $('.cash');
@@ -58,6 +58,7 @@ $(()=>{
     mole: 1,
     tree: 2,
     'mole tree': 3,
+    'tree mole': 3,
     bad: -1,
     'grid': 0,
     'mole bad ': 0,
@@ -168,7 +169,6 @@ $(()=>{
       start();
     },500);
     $('.grid').click(targeter);
-
   });
 
 

@@ -90,7 +90,8 @@ top:2%;
 font-size: 60px;
 font-family: 'Pacifico', cursive;
 margin-right:10px;
-background-color:rgba(255,255,255,0)
+background-color:rgba(255,255,255,0);
+text-decoration: underline;
 }
 .play {
  position:absolute;
@@ -120,12 +121,12 @@ margin-bottom: 20px;
   height:170px;
   color:#5BA512;
   font-size: 200px;
-  margin-top: 40px;
   text-align: center;
   font-family: 'Roboto Mono', monospace;
-  margin-bottom: 100px;
-  background-color:rgba(255,255,255,0)
-  l
+  margin-top: 10px;
+  background-color:rgba(255,255,255,0);
+  position:relative;
+  bottom:60px;
 }
 header .reset {
 height: 100px;
@@ -148,12 +149,13 @@ border: solid rgba(0, 0, 0, 0.7) 2px;
 
 .time {
 background: linear-gradient(to left, #70e1f5 , #ffd194);
-height: 200px;
+height: 350px;
 width: 300px;
 margin: 0 auto;
-margin-bottom: 0;
+margin-bottom: 20px;
 border: solid rgba(0, 0, 0, 0.7) 2px;
 margin-top: 10px;
+border-radius: 20px;
 }
 
 .time h2 {
@@ -238,6 +240,7 @@ color:rgba(255,255,255,1);
   right:55px;
 }
 form {
+  margin-top:10px;
   background-color: rgba(255,255,255,0);
 }
 #difficultySelector {

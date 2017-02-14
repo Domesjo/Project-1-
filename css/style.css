@@ -13,7 +13,7 @@ header {
   width: 100%;
 }
 main{
-margin: 0 auto;
+float:right;
 border: solid rgba(0, 0, 0, 0.7) 4px;
 margin-top: 1px;
 margin-bottom: 1px;
@@ -24,6 +24,10 @@ min-height:774px;
 display:inline-block;
 background-image: url("cado.jpg");
 background-size: cover;
+display:block;
+bottom: 20px;
+position: relative;
+margin-right: 50px;
 }
 .grid{
 border: brown solid 2px;
@@ -36,7 +40,7 @@ border-radius: 100px;
 }
 
 footer {
-  background-image: url("CBTO.jpg");
+  /*background-image: url("CBTO.jpg");*/
   height:50px;
   width:100%;
 
@@ -87,10 +91,10 @@ display:inline-block;
 text-align: center;
 margin: 0 auto;
 position:absolute;
-left: 37%;
+left: 55%;
 /*color:rgba(85, 215, 142, 0.9);*/
 color:rgba(255,255,255,1);
-top:2%;
+top:0;
 font-size: 60px;
 font-family: 'Pacifico', cursive;
 margin-right:10px;
@@ -111,11 +115,12 @@ text-decoration: underline;
   display:inline-block;
   float:left;
   margin-right: 100px;
+  margin-left: 15px;
 }
 
 .left h2 {
   text-align: center;
-  font-size: 60px;
+  font-size: 40px;
   font-family: 'Roboto Mono', monospace;
 background-color:rgba(255,255,255,0);
 margin-top: 27px;
@@ -131,7 +136,7 @@ color:rgba(255,255,255,.8);
   margin-top: 70px;
   /*background-color:rgba(255,255,255,.8);*/
   position:relative;
-  bottom:80px;
+  bottom:40px;
   display: block;
 }
 header .reset {
@@ -144,7 +149,7 @@ font-size: 30px;
 padding: 10px;
 padding-top:10px;
 cursor:pointer;
-margin-left: 300px;
+margin-left: 250px;
 display:inline-block;
 margin-top: 20px;
 font-family: 'Pacifico', cursive;
@@ -157,11 +162,14 @@ border: solid rgba(0, 0, 0, 0.7) 2px;
 /*background: linear-gradient(to left, #70e1f5 , #ffd194);*/
 height: 350px;
 width: 300px;
+left:347px;
+top:50px;
 margin: 0 auto;
 margin-bottom: 20px;
 border: solid rgba(0, 0, 0, 0.7) 2px;
 margin-top: 10px;
 border-radius: 20px;
+position: relative;
 }
 
 .time h2 {
@@ -193,14 +201,17 @@ color:rgba(255,255,255,.8);
   padding-top:20px;
   cursor:pointer;
   float:right;
-  bottom:550px;
-  right: 70px;
+
+  left:475px;
+  top:25px;
+  /*bottom:550px;
+  right: 70px;*/
   display: inline-block;
   font-family: 'Pacifico', cursive;
-  margin-top:17px;
+
   line-height: 30px;
   border: solid rgba(0, 0, 0, 0.7) 2px;
-  position: relative;
+  position: absolute;
 
 }
 
@@ -219,8 +230,8 @@ background-image: url('100.gif');
 background-size: contain;
 position: absolute;
 border: solid rgba(0, 0, 0, 0.7) 2px;
-right:20px;
-bottom: 170px;
+left:21.75%;
+bottom: 0px;
 
 }
 
@@ -231,8 +242,11 @@ margin-top:10px;
 margin-bottom: 5px;
 color:rgba(255,255,255,1);
  font-family: 'Pacifico', cursive;
- margin-right:-30px;
- background-color:rgba(255,255,255,0)
+ margin-right: 20px;
+ background-color:rgba(255,255,255,0);
+bottom:0;
+ position: absolute;
+ right: 10px;
 }
 
 #selector {
@@ -255,6 +269,8 @@ color:rgba(255,255,255,1);
   right:55px;
 }
 form {
+  position: relative;
+  bottom:100px;
   color:rgba(255,255,255,0.8);
   margin-top:10px;
   background-color: rgba(255,255,255,0);
@@ -276,6 +292,8 @@ font-size: 25px;
 margin-left: 5px;
 font-family: 'Satisfy', cursive;
   color:rgba(255,255,255,0.8);
+  position: relative;
+  bottom:100px;
 }
 .highScore {
   border: solid black 1px;
@@ -283,17 +301,23 @@ height:200px;
 width:230px;
 background: linear-gradient(to left, #2BC0E4 , #EAECC6);
 display: inline-block;
-float:right;
+float:left;
 margin-top: 20px;
 margin-right: 40px;
 line-height: 20px;
 font-family: 'Pacifico', cursive;
 text-align: center;
-
+left:15px;
+margin-left: 15px;
+position: absolute;
 }
 .scoo {
   border:solid black 2px;
   height: 250px;
+  width:220px;
+  position: relative;
+  bottom:55px;
+  margin-left: 2px;
 }
 
 li{

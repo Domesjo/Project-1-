@@ -1,66 +1,66 @@
-
-function CalcRandom(){
+var gam = gam || {};
+gam.CalcRandom= function(){
   return  Math.floor(Math.random()*$('div').length);
-}
+};
 //let time = $('.select').find(':selected').val();
-let score = 0;
+gam.score = 0;
 
 // const highscore = localStorage.getItem('highscore');
 
-
-$(()=>{
+//BIND DENNA FUNKTION
+gam.setUp= function (){
   console.log('hey');
 //  let time = 15;
-  let $grid;
-  let tidId;
-  let time = parseInt($('select option:selected').val());
-  let difficulty = 2;
-  let timeId;
-  const $timer = $('.time');
-  const $scoo = $('.scoo');
-  const hiScore4 = localStorage.getItem('hiScore4');
-  const hiScore3 = localStorage.getItem('hiScore3');
-  const hiScore2 = localStorage.getItem('hiScore2');
-  const hiScore = localStorage.getItem('hiScore');
-  const $board = $('#container');
-  const $activeScore = $('.score');
-  const $startBtn = $('.play');
-  const $reset = $('.reset');
-  const $highScore =$('.highScore');
-  const $HS = $('.HSbtn');
-  const $instructions = $('.Instructions');
-  const $how= $('.how');
-  const $cash = $('.cash');
+  gam.$grid;
+  gam.tidId;
+  gam.time = parseInt($('select option:selected').val());
+  gam.difficulty = 2;
+  gam.timeId;
+  gam.$timer = $('.time');
+  gam.$scoo = $('.scoo');
+  gam.hiScore4 = localStorage.getItem('hiScore4');
+  gam.hiScore3 = localStorage.getItem('hiScore3');
+  gam.hiScore2 = localStorage.getItem('hiScore2');
+  gam.hiScore = localStorage.getItem('hiScore');
+  gam.$board = $('#container');
+  gam.$activeScore = $('.score');
+  gam.$startBtn = $('.play');
+  gam.$reset = $('.reset');
+  gam.$highScore =$('.highScore');
+  gam.$HS = $('.HSbtn');
+  gam.$instructions = $('.Instructions');
+  gam.$how= $('.how');
+  gam.$cash = $('.cash');
 
 
-  function checkHighScore(){
+  gam.checkHighScore = function(){
     $('#1').text(localStorage.getItem('hiScore'));
     $('#2').text(localStorage.getItem('hiScore2'));
     $('#3').text(localStorage.getItem('hiScore3'));
     $('#4').text(localStorage.getItem('hiScore4'));
-  }
+  };
 
 
-  function slide(elem,elem2){
+  gam.slide = function(elem,elem2){
     elem.toggle().animate({right: '20px'}, 'slow');
     elem2.toggle().animate({right: '20px'}, 'slow');
-  }
+  };
 
 
 
-  function createBoard(){
-    $startBtn.hide();
+  gam.createBoard = function(){
+    this.$startBtn.hide();
     for(let i=0;i<30;i++){
-      $board.append($('<div/>', { class: 'grid' }));
-      $grid = $('.grid');
+      this.$board.append($('<div/>', { class: 'grid' }));
+      this.$grid = $('.grid');
     }
-  }
+  };
 
-  function upDateScore(){
-    $activeScore.text(score);
-  }
+  gam.upDateScore=function(){
+    this.$activeScore.text(this.score);
+  };
 
-  const scores = {
+  gam.scores = {
     mole: 1,
     tree: 2,
     'mole tree': 3,
@@ -72,159 +72,164 @@ $(()=>{
   };
 
 
-  function targeter (e){
+  gam.targeter = function (e){
     const targetClass = $(e.target).attr('class').replace(/^grid /, '');
     if(targetClass==='tree'||targetClass==='mole'|| targetClass ==='bad')
+
       $(e.target).removeClass(targetClass);
-    const scoreToAdd = scores[targetClass];
-    score += scoreToAdd;
-    playSound();
-  }
+    const scoreToAdd = gam.scores[targetClass];
+    console.log(scoreToAdd);
+    this.score += scoreToAdd;
+    this.playSound();
+  };
 
-  function playSound() {
-    $cash.trigger('play');
-  }
+  gam.playSound = function() {
+    this.$cash.trigger('play');
+  };
 
-  function isHighScore(prevHiscore,presentHiscore,hiScoreToSet){
-    if(score < prevHiscore && score > presentHiscore) localStorage.setItem(hiScoreToSet, score);
-  }
+  gam.isHighScore = function(prevHiscore,presentHiscore,hiScoreToSet){
+    if(this.score < prevHiscore && this.score > presentHiscore) localStorage.setItem(hiScoreToSet, this.score);
+  };
 
-  function highScore(){
-    if(hiScore !== null) {
-      if(score > hiScore ) localStorage.setItem('hiScore', score);
-      isHighScore(hiScore,hiScore3,'hiScore2');
-      isHighScore(hiScore2,hiScore3,'hiScore3');
-      isHighScore(hiScore3,hiScore4,'hiScore4');
+  gam.highScore = function(){
+    if(this.hiScore !== null) {
+      if(this.score > this.hiScore ) localStorage.setItem('hiScore', this.score);
+      this.isHighScore(this.hiScore,this.hiScore3,'hiScore2');
+      this.isHighScore(this.hiScore2,this.hiScore3,'hiScore3');
+      this.isHighScore(this.hiScore3,this.hiScore4,'hiScore4');
     }
-  }
+  };
 
-  function moleGenerator(){
-    timeId = setInterval(()=>{
-      addRandomMole();
-      upDateScore();
-      $('.displayTime').text(time);
-      return timeId;
+  gam.moleGenerator = function(){
+    this.timeId = setInterval(()=>{
+      this.addRandomMole();
+      this.upDateScore();
+      $('.displayTime').text(this.time);
+      return this.timeId;
     },333);
-  }
-  function timeCounter(){
-    tidId = setInterval(()=>{
-      time--;
-      addRandomTree();
-      addRandomBad();
-      return tidId;
+  };
+  gam.timeCounter = function(){
+    this.tidId = setInterval(()=>{
+      this.time--;
+      this.addRandomTree();
+      this.addRandomBad();
+      return this.tidId;
     },1000);
-  }
+  };
 
-  function DisplayScore (){
-    $board.append($('<div/>', { class: 'final' }));
+  gam.DisplayScore = function (){
+    this.$board.append($('<div/>', { class: 'final' }));
     const $star = $('.final');
     $star.fadeIn(400);
     $star.append($('<p/>',{ class: 'finalPara'}));
     const $para = $('.finalPara');
-    $para.text(score);
+    $para.text(this.score);
 
     setTimeout(()=>{
       $star.fadeOut(400);
 
     },2000);
-  }
-  function timeOut(num,toRemove,time){
+  };
+  gam.timeOut = function(num,toRemove,time){
     setTimeout(()=> {
-      $grid.eq(num).removeClass(toRemove);
+      this.$grid.eq(num).removeClass(toRemove);
     },time);
-  }
+  };
 
 
-  function finish(){
+  gam.finish = function(){
     setTimeout(()=>{
-      clearInterval(timeId);
-      clearInterval(tidId);
-      DisplayScore();
-      $reset.show();
-      $grid.removeClass('grid');
-      highScore();
+      clearInterval(this.timeId);
+      clearInterval(this.tidId);
+      this.DisplayScore();
+      this.$reset.show();
+      this.$grid.removeClass('grid');
+      this.highScore();
       localStorage.getItem('hiScore');
-    },time*1000+500);
-  }
+    },this.time*1000+500);
+  };
 
-  function start(){
-    slide($scoo,$timer);
-    difficulty = parseInt($('#difficultySelector option:selected').val());
-    time = parseInt($('#selector option:selected').val());
-    moleGenerator();
-    timeCounter();
-    finish();
-  }
-
-
-
-  function addRandomMole(){
-    const num = CalcRandom();
-    $grid.eq(num).addClass('mole');
-    timeOut(num,'mole',difficulty *1000 );
-  }
-
-  function addRandomTree(){
-    const num = CalcRandom();
-    ($('div').hasClass('grid')) ? $grid.eq(num).addClass('tree'): console.log('wood');
-    timeOut(num,'tree',difficulty*1000/2);
-  }
-
-  function addRandomBad(){
-    const num = CalcRandom();
-    ($('div').hasClass('grid')) ? $grid.eq(num).addClass('bad') : console.log('bad dont work');
-    timeOut(num,'bad',difficulty*1000 +500);
-  }
-
-  function star(){
-    $highScore.toggle().animate({left: '-10px'}, '3500');
-  }
-
-  $HS.click(star);
-
-  function toggleHelp(){
-    $instructions.hide();
-    $how.toggle().animate({left: '.5px'}, '3500');
-
-    $how.click(hideHelp);
-  }
-
-  function hideHelp(){
-    $how.hide();
-    $instructions.fadeIn(400);
-  }
+  gam.start = function(){
+    this.slide(this.$scoo,this.$timer);
+    this.difficulty = parseInt($('#difficultySelector option:selected').val());
+    this.time = parseInt($('#selector option:selected').val());
+    this.moleGenerator();
+    this.timeCounter();
+    this.finish();
+  };
 
 
 
-  function resetScore(){
-    score = 0;
-    $activeScore.text(score);
-  }
+  gam.addRandomMole = function(){
+    const num = this.CalcRandom();
+    this.$grid.eq(num).addClass('mole');
+    this.timeOut(num,'mole',this.difficulty *1000 );
+  };
 
-  function playAgain(){
-    time = parseInt($('#selector option:selected').val());
-    $reset.hide();
-    resetScore();
-    createBoard();
-    start();
-    $grid.click(targeter);
-  }
-  function gameTime(){
-    createBoard();
+  gam.addRandomTree = function(){
+    const num = this.CalcRandom();
+    ($('div').hasClass('grid')) ? this.$grid.eq(num).addClass('tree'): console.log('wood');
+    this.timeOut(num,'tree',this.difficulty*1000/2);
+  };
+
+  gam.addRandomBad = function(){
+    const num = this.CalcRandom();
+    ($('div').hasClass('grid')) ? this.$grid.eq(num).addClass('bad') : console.log('bad dont work');
+    this.timeOut(num,'bad',this.difficulty*1000 +500);
+  };
+
+  gam.star = function(){
+    this.$highScore.toggle().animate({left: '-10px'}, '3500');
+  };
+
+
+
+  gam.toggleHelp = function(){
+    this.$instructions.hide();
+    this.$how.toggle().animate({left: '.5px'}, '3500');
+
+    this.$how.click(this.hideHelp.bind(this));
+  };
+
+  gam.hideHelp = function(){
+    gam.$how.hide();
+    gam.$instructions.fadeIn(400);
+  };
+
+
+
+  gam.resetScore = function(){
+    this.score = 0;
+    this.$activeScore.text(this.score);
+  };
+
+  gam.playAgain = function(){
+    this.time = parseInt($('#selector option:selected').val());
+    this.$reset.hide();
+    this.resetScore();
+    this.createBoard();
+    this.slide(this.$scoo,this.$timer);
+    this.start();
+    this.$grid.click(this.targeter.bind(this));
+  };
+  gam.gameTime = function(){
+    this.createBoard();
     setTimeout(()=>{
-      start();
+      this.start();
     },500);
-    $grid.click(targeter);
-  }
-  $timer.hide();
-  $scoo.hide();
-  $highScore.hide();
-  $reset.hide();
-  checkHighScore();
-  $reset.click(playAgain);
-  $instructions.click(toggleHelp);
-  $startBtn.click(gameTime);
+    this.$grid.click(this.targeter.bind(this));
+  };
+  this.$timer.hide();
+  this.$scoo.hide();
+  this.$highScore.hide();
+  this.$reset.hide();
+  this.checkHighScore();
+  this.$HS.click(this.star.bind(this));
+  this.$reset.click(this.playAgain.bind(this));
+  this.$instructions.click(this.toggleHelp.bind(this));
+  this.$startBtn.click(this.gameTime.bind(this));
 
 
 
-});
+};
+$(gam.setUp.bind(gam));

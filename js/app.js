@@ -1,8 +1,4 @@
-function timeOut(num,toRemove,time){
-  setTimeout(()=> {
-    $('.grid').eq(num).removeClass(toRemove);
-  },time);
-}
+
 function CalcRandom(){
   return  Math.floor(Math.random()*$('div').length);
 }
@@ -40,9 +36,6 @@ $(()=>{
     $('#4').text(localStorage.getItem('hiScore4'));
   }
   //$how.slideUp(400);
-  $highScore.hide();
-  $reset.hide();
-  checkHighScore();
 
   function createBoard(){
     $startBtn.hide();
@@ -67,15 +60,16 @@ $(()=>{
     'bad mole': 0
   };
 
+
   function targeter (e){
     const targetClass = $(e.target).attr('class').replace(/^grid /, '');
-    console.log(targetClass);
-    const scoreToAdd = scores[targetClass];
     if(targetClass==='tree'||targetClass==='mole'|| targetClass ==='bad')
       $(e.target).removeClass(targetClass);
+    const scoreToAdd = scores[targetClass];
     score += scoreToAdd;
     playSound();
   }
+
   function playSound() {
     $cash.trigger('play');
   }
@@ -115,14 +109,19 @@ $(()=>{
     const $star = $('.final');
     $star.fadeIn(400);
     $star.append($('<p/>',{ class: 'finalPara'}));
-    $('.finalPara').text(score);
+    const $para = $('.finalPara');
+    $para.text(score);
 
     setTimeout(()=>{
       $star.fadeOut(400);
 
     },2000);
   }
-
+  function timeOut(num,toRemove,time){
+    setTimeout(()=> {
+      $grid.eq(num).removeClass(toRemove);
+    },time);
+  }
 
 
   function finish(){
@@ -130,7 +129,7 @@ $(()=>{
       clearInterval(timeId);
       clearInterval(tidId);
       $reset.show();
-      $('.grid').removeClass('grid');
+      $grid.removeClass('grid');
       DisplayScore();
       highScore();
       localStorage.getItem('hiScore');
@@ -165,37 +164,49 @@ $(()=>{
     timeOut(num,'bad',difficulty*1000 +500);
   }
 
-  $HS.click(()=>{
+  function star(){
     $highScore.slideToggle(400);
+  }
 
-  });
+  $HS.click(star);
 
-  $instructions.click(()=>{
+  function toggleHelp(){
     $how.slideToggle(400);
-    $how.click(()=>{
-      $how.hide();
-    });
-  });
+    $how.click(hideHelp);
+  }
+  function hideHelp(){
+    $how.hide();
+  }
 
-  $reset.click(()=>{
-    $reset.hide();
-    $('.grid').removeClass('mole');
+
+
+  function resetScore(){
     score = 0;
-    time = parseInt($('#selector option:selected').val());
     $activeScore.text(score);
+  }
+
+  function playAgain(){
+    time = parseInt($('#selector option:selected').val());
+    $reset.hide();
+    resetScore();
     createBoard();
     start();
-    $('.grid').click(targeter);
-  });
-
-
-  $startBtn.click(function gameTime(){
+    $grid.click(targeter);
+  }
+  function gameTime(){
     createBoard();
     setTimeout(()=>{
       start();
     },500);
     $grid.click(targeter);
-  });
+  }
+
+  $highScore.hide();
+  $reset.hide();
+  checkHighScore();
+  $reset.click(playAgain);
+  $instructions.click(toggleHelp);
+  $startBtn.click(gameTime);
 
 
 

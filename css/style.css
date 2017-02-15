@@ -3,7 +3,7 @@
 box-sizing: border-box;
 }
 body  {
-  background: linear-gradient(to right, #1D976C , #93F9B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #1D976C , #93F9B9); 
 
 }
 header {
@@ -246,7 +246,7 @@ background-size: contain;
 position: absolute;
 border: solid rgba(0, 0, 0, 0.7) 2px;
 left:10px;
-top: 134px;
+bottom: 540px;
 
 }
 

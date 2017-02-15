@@ -19,6 +19,7 @@ $(()=>{
   let time = parseInt($('select option:selected').val());
   let difficulty = 2;
   let timeId;
+
   const hiScore4 = localStorage.getItem('hiScore4');
   const hiScore3 = localStorage.getItem('hiScore3');
   const hiScore2 = localStorage.getItem('hiScore2');
@@ -41,7 +42,6 @@ $(()=>{
   //$how.slideUp(400);
   $reset.hide();
   checkHighScore();
-
   function createBoard(){
     $startBtn.hide();
     for(let i=0;i<30;i++){
@@ -107,12 +107,29 @@ $(()=>{
       return tidId;
     },1000);
   }
+
+  function DisplayScore (){
+    $board.append($('<div/>', { class: 'final' }));
+    const $star = $('.final');
+    $star.fadeIn(400);
+    $star.append($('<p/>',{ class: 'finalPara'}));
+    $('.finalPara').text(score);
+
+    setTimeout(()=>{
+      $star.fadeOut(400);
+
+    },2000);
+  }
+
+
+
   function finish(){
     setTimeout(()=>{
       clearInterval(timeId);
       clearInterval(tidId);
       $reset.show();
       $('.grid').removeClass('mole');
+      DisplayScore();
       highScore();
       localStorage.getItem('hiScore');
     },time*1000+500);

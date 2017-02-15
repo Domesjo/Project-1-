@@ -28,11 +28,11 @@ $(()=>{
   const $activeScore = $('.score');
   const $startBtn = $('.play');
   const $reset = $('.reset');
-  //const $timer = $('.time');
+  const $highScore =$('.highScore');
+  const $HS = $('.HSbtn');
   const $instructions = $('.Instructions');
   const $how= $('.how');
   const $cash = $('.cash');
-
   function checkHighScore(){
     $('#1').text(localStorage.getItem('hiScore'));
     $('#2').text(localStorage.getItem('hiScore2'));
@@ -40,8 +40,10 @@ $(()=>{
     $('#4').text(localStorage.getItem('hiScore4'));
   }
   //$how.slideUp(400);
+  $highScore.hide();
   $reset.hide();
   checkHighScore();
+
   function createBoard(){
     $startBtn.hide();
     for(let i=0;i<30;i++){
@@ -97,7 +99,7 @@ $(()=>{
       upDateScore();
       $('.displayTime').text(time);
       return timeId;
-    },500);
+    },333);
   }
   function timeCounter(){
     tidId = setInterval(()=>{
@@ -128,7 +130,7 @@ $(()=>{
       clearInterval(timeId);
       clearInterval(tidId);
       $reset.show();
-      $('.grid').removeClass('mole');
+      $('.grid').removeClass('grid');
       DisplayScore();
       highScore();
       localStorage.getItem('hiScore');
@@ -163,10 +165,15 @@ $(()=>{
     timeOut(num,'bad',difficulty*1000 +500);
   }
 
+  $HS.click(()=>{
+    $highScore.slideToggle(400);
+
+  });
+
   $instructions.click(()=>{
     $how.slideToggle(400);
     $how.click(()=>{
-      $how.slideToggle(400);
+      $how.hide();
     });
   });
 
@@ -176,7 +183,9 @@ $(()=>{
     score = 0;
     time = parseInt($('#selector option:selected').val());
     $activeScore.text(score);
+    createBoard();
     start();
+    $('.grid').click(targeter);
   });
 
 
@@ -185,7 +194,7 @@ $(()=>{
     setTimeout(()=>{
       start();
     },500);
-    $('.grid').click(targeter);
+    $grid.click(targeter);
   });
 
 

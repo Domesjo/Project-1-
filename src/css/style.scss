@@ -90,8 +90,8 @@ cursor:pointer;
 margin-left: 40px;
 display: inline-block;
 border: solid rgba(0, 0, 0, 0.7) 2px;
-left: 37.5%;
-top: 300px;
+left: 43.5%;
+top: 390px;
 position: absolute;
 z-index: 2;
 }
@@ -140,10 +140,10 @@ color:rgba(255,255,255,.8);
 .score {
   height:200px;
   color:rgba(255,255,255,.8);
-  font-size: 70px;
+  font-size: 120px;
   text-align: center;
   font-family: 'Roboto Mono', monospace;
-  margin-top: 130px;
+  margin-top: 110px;
   /*background-color:rgba(255,255,255,.8);*/
   position:relative;
   bottom:40px;
@@ -166,8 +166,8 @@ font-family: 'Pacifico', cursive;
 line-height: 35px;
 color:black;
 border: solid rgba(0, 0, 0, 0.7) 2px;
-left: 35.5%;
-top: 300px;
+left: 31%;
+top: 390px;
 position: absolute;
 z-index: 2;
 }
@@ -175,15 +175,16 @@ z-index: 2;
 .time {
 /*background: linear-gradient(to left, #70e1f5 , #ffd194);*/
 height: 40%;
-width: 300px;
+z-index: -2;
+width: 377px;
 /*left:347px;
 top:50px;*/
 margin: 0 auto;
 margin-bottom: 20px;
 background-color: #3D9970;
 // border: solid rgba(0, 0, 0, 0.7) 2px;
-margin-top: 10px;
-border-radius: 20px 0 0 0;
+//margin-top: 10px;
+//border-radius: 20px 0 0 0;
 right:-200px;
 float:right;
 position: absolute;
@@ -241,7 +242,7 @@ height: 260px;
 font-family: 'Acme', sans-serif;
 // color:rgba(124, 227, 233, 1);
 color:rgba(255,255,255,.8);
-border-radius: 0 20px 20px 0;
+// border-radius: 20px 20px 20px 20px;
 text-transform: uppercase;
 display:none;
 font-size: 25px;
@@ -324,7 +325,7 @@ font-family: 'Satisfy', cursive;
 .highScore {
   // border: solid black 1px;
 height:350px;
-width:350px;
+width:400px;
 background-color: #3D9970;
 display: inline-block;
 float:left;
@@ -339,12 +340,13 @@ position: absolute;
 bottom:95px;
 color:rgba(255,255,255,.8);
 border-radius: 0 20px 20px 0;
+z-index: -2;
 }
 .scoo {
   // border:solid black 2px;
   height: 41%;
   bottom:-80px;
-  width:300px;
+  width:377px;
   position: absolute;
   bottom:55px;
   margin-left: 2px;
@@ -353,14 +355,15 @@ border-radius: 0 20px 20px 0;
 margin-top:1px;
 background-color: #3D9970;
 border-radius: 20px 0 0 20px;
+z-index: -2;
 }
 
 li{
-margin: 15px 15px;
+margin: 15px 30px;
 border: dashed rgba(255,255,255,.8) 2px;
 font-size: 20px;
 font-family: 'Pacifico', cursive;
-
+width:250px
 
 
 }

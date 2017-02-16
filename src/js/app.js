@@ -180,6 +180,7 @@ gam.setUp= function (){
 
   gam.star = function(){
     this.$highScore.toggle().animate({left: '-10px'}, '3500');
+    gam.$HS.hide();
   };
 
 
@@ -212,6 +213,7 @@ gam.setUp= function (){
     this.start();
     this.$grid.click(this.targeter.bind(this));
   };
+
   gam.gameTime = function(){
     this.createBoard();
     setTimeout(()=>{
@@ -219,6 +221,7 @@ gam.setUp= function (){
     },500);
     this.$grid.click(this.targeter.bind(this));
   };
+
   this.$timer.hide();
   this.$scoo.hide();
   this.$highScore.hide();

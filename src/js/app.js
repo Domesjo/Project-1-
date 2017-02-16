@@ -42,8 +42,8 @@ gam.setUp= function (){
 
 
   gam.slide = function(elem,elem2){
-    elem.toggle().animate({right: '20px'}, 'slow');
-    elem2.toggle().animate({right: '20px'}, 'slow');
+    elem.toggle().animate({right: '0px'}, 'slow');
+    elem2.toggle().animate({right: '0px'}, 'slow');
   };
 
 
@@ -186,7 +186,7 @@ gam.setUp= function (){
 
   gam.toggleHelp = function(){
     this.$instructions.hide();
-    this.$how.toggle().animate({left: '.5px'}, '3500');
+    this.$how.toggle().animate({left: '0px'}, '3500');
 
     this.$how.click(this.hideHelp.bind(this));
   };

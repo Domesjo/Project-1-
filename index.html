@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Project 1</title>
     <link rel="stylesheet" href="font-awesome-4.7/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
@@ -17,17 +18,20 @@
     <header>
       <div class="play morph">Start! </div>
       <div class="reset morph">Play Again!</div>
-      <h1>Guacc' A Mole'</h1>
+      <h1>Guacc' A M<span id="headergif">o</span>le</h1>
+      <i class="fa fa-volume-off mute" aria-hidden="true"></i>
+
     </header>
     <main id="container">
-      <audio class="cash" src="cash.wav"></audio>
+      <audio class="cash" src="/audio/cash.wav"></audio>
     </main>
     <aside class="left">
       <div class="time">
         <h2>Time:</h2>
         <p class="displayTime"></p>
         </div>
-        <p class="choose" >Select time and difficulty</p>
+      <!-- //  <p class="choose" >Select time and difficulty</p> -->
+
       <form>
         <select name="selector" id="selector">
           <option class="option" value="15">15</option>
@@ -64,13 +68,17 @@
         Click the shinyCado to gain 2 points!<br>
         <br>
         Don't click the angryCado!<br>
-        <i class="fa fa-arrow-left" aria-hidden="true"></i>Back!
+        <br>
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      </div>
+      <div class="gif">
       </div>
     <footer>
       <p class="footer">
         Powered by by Sam Domesjö
       </p>
+      <audio src="/audio/Avocad.mp3" class="avocado" autoplay="true">
+      </audio>
     </footer>
-
   </body>
 </html>

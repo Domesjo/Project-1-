@@ -11,6 +11,7 @@ gam.score = 0;
 gam.setUp= function (){
   console.log('hey');
 //  let time = 15;
+  gam.$mute = $('.mute');
   gam.$grid;
   gam.tidId;
   gam.time = parseInt($('select option:selected').val());
@@ -50,10 +51,16 @@ gam.setUp= function (){
 
   gam.createBoard = function(){
     this.$startBtn.hide();
-    for(let i=0;i<30;i++){
-      this.$board.append($('<div/>', { class: 'grid' }));
-      this.$grid = $('.grid');
+    function createEle (){
+      gam.$board.append($('<div/>', { class: 'grid' }));
     }
+    for(let i=0;i<30;i++){
+      setTimeout(()=>{
+        createEle();
+        this.$grid = $('.grid');
+      },i*100);
+    }
+  //  this.$grid = $('.grid');
   };
 
   gam.upDateScore=function(){
@@ -142,10 +149,12 @@ gam.setUp= function (){
       clearInterval(this.timeId);
       clearInterval(this.tidId);
       this.DisplayScore();
-      this.$reset.show();
       this.$grid.removeClass('grid');
       this.highScore();
       localStorage.getItem('hiScore');
+      setTimeout(()=>{
+        this.$reset.fadeIn(400);
+      },2500);
     },this.time*1000+500);
   };
 
@@ -187,7 +196,7 @@ gam.setUp= function (){
 
   gam.toggleHelp = function(){
     this.$instructions.hide();
-    this.$how.toggle().animate({left: '0px'}, '3500');
+    this.$how.toggle().animate({left: '-8px'}, '3500');
 
     this.$how.click(this.hideHelp.bind(this));
   };
@@ -210,16 +219,25 @@ gam.setUp= function (){
     this.resetScore();
     this.createBoard();
     this.slide(this.$scoo,this.$timer);
-    this.start();
-    this.$grid.click(this.targeter.bind(this));
+    setTimeout(()=>{
+      this.start();
+      this.$grid.click(this.targeter.bind(this));
+    },2750);
   };
 
   gam.gameTime = function(){
     this.createBoard();
     setTimeout(()=>{
       this.start();
-    },500);
-    this.$grid.click(this.targeter.bind(this));
+      this.$grid.click(this.targeter.bind(this));
+    },2750);
+
+  };
+
+  gam.muteMusic = function (){
+    const $song = $('.avocado');
+    console.log($song);
+    $song.prop('muted',true);
   };
 
   this.$timer.hide();
@@ -231,7 +249,7 @@ gam.setUp= function (){
   this.$reset.click(this.playAgain.bind(this));
   this.$instructions.click(this.toggleHelp.bind(this));
   this.$startBtn.click(this.gameTime.bind(this));
-
+  this.$mute.click(this.muteMusic.bind(this));
 
 
 };
